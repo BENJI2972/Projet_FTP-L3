@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.StringTokenizer;
 
-public class Ftp {
+class Ftp {
 
    private String user;
    private Socket socket = null, socketData = null;
@@ -156,6 +156,19 @@ public class Ftp {
       return read();
    }
    
+   public String mkdir(String dir) throws IOException{
+	      //On envoie la commande
+	      send("MKD " + dir);
+	      //On lit la réponse
+	      return read();
+	   }
+   public String rm(String dir) throws IOException{
+	      //On envoie la commande
+	      send("RMD " + dir);
+	      //On lit la réponse
+	      return read();
+	   }
+   
    /**
     * Permet de changer de répertoire (Change Working Directory)
     * @return
@@ -167,6 +180,8 @@ public class Ftp {
       //On lit la réponse
       return read();
    }
+   
+   
    
    public String list() throws IOException{
       send("TYPE ASCII");      
@@ -237,7 +252,12 @@ public class Ftp {
    }
    
    private void log(String str){
-      System.out.println(">> " + str);
+	   
+	 if(str.substring(0,4).equals("PASS")) {
+		 System.out.println(">> PASS ***");
+	 }
+	 else {
+		 System.out.println(">> " + str);
+	 }
    }
-   
 }

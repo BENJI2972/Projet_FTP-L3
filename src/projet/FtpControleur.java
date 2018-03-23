@@ -1,7 +1,13 @@
 package projet;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -35,11 +41,16 @@ public class FtpControleur {
 	private TitledPane fullfields;
 	@FXML
 	private void connection() {
-		
+		/*
 		String hote = hotefield.getText();
 		String login = loginfield.getText();
 		String pass = passfield.getText();
 		Integer port = Integer.parseInt( portfield.getText() );
+		*/
+		String hote = ("stockage.univ-brest.fr");
+		String login = ("e21502323");
+		String pass = ("@Benji@Benjo@29");
+		Integer port = 21;
 		
 		try {
 	         sc = new Scanner(System.in);
@@ -52,7 +63,7 @@ public class FtpControleur {
 	         
 	         cmdarea.appendText("-------------------------------------------------------\n");
 	         cmdarea.appendText("Vous êtes maintenant connecté au FTP\n");
-	         cmdarea.appendText("Vous avez le droit aux commandes PWD, CWD, LIST et QUIT\n");
+	         cmdarea.appendText("Vous avez le droit aux commandes PWD, CWD, LIST, RMD, MKDIR et QUIT\n");
 	         cmdarea.appendText("-------------------------------------------------------\n\n");
 	         String reponse = "";
 
@@ -73,13 +84,7 @@ public class FtpControleur {
         	cmdarea.appendText(ftp.pwd());
         	cmdarea.appendText("\n");
            break;
-        case "CWD":
-        	cmdarea.appendText(">> Saisissez le nom du répertoire où vous voulez aller : ");
-        	cmdarea.appendText("\n");
-           String dir = sc.nextLine();
-           cmdarea.appendText(ftp.cwd(dir));
-           cmdarea.appendText("\n");
-           break;
+        
         case "LIST":
            String list = ftp.list();
            cmdarea.appendText(list);
@@ -88,9 +93,28 @@ public class FtpControleur {
         case "QUIT":
            ftp.quit();
            break;
-         default : 
-            cmdarea.appendText("Commande inconnue !");
-            cmdarea.appendText("\n");
+         default :
+        	if(reponse.substring(0, 3).equals("CWD")) {
+        		
+               String dir = reponse.substring(4,reponse.length());
+               cmdarea.appendText(ftp.cwd(dir));
+               cmdarea.appendText("\n");
+        	}
+        	else
+        		if(reponse.substring(0, 5).equals("MKDIR")) {
+        		
+               String dir = reponse.substring(6,reponse.length());
+               cmdarea.appendText(ftp.mkdir(dir));
+               cmdarea.appendText("\n");
+        	} else if(reponse.substring(0, 3).equals("RMD")) {
+        		
+                String dir = reponse.substring(4,reponse.length());
+                cmdarea.appendText(ftp.rm(dir));
+                cmdarea.appendText("\n");}
+        	else{
+        		cmdarea.appendText("Commande inconnue !");
+            	cmdarea.appendText("\n");
+        	}
             break;
         }
 		} catch (IOException e) {
@@ -98,28 +122,36 @@ public class FtpControleur {
 	         System.exit(0);
 	      }
 	}
+	
+	
+	
+	public void affiche(String str) {
+		
+
+	}
+	
+	
+	
+	
 }
-	/*
-	 * switch (reponse) {
-	            case "PWD":
-	               System.out.println(ftp.pwd());
-	               break;
-	            case "CWD":
-	               System.out.println(">> Saisissez le nom du répertoire où vous voulez aller : ");
-	               String dir = sc.nextLine();
-	               System.out.println(ftp.cwd(dir));
-	               break;
-	            case "LIST":
-	               String list = ftp.list();
-	               System.out.println(list);
-	               break;
-	            case "QUIT":
-	               ftp.quit();
-	               encore = false;
-	               break;
-	             default : 
-	                System.err.println("Commande inconnue !");
-	                break;
-	            }
-	            */
-	 
+
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
+/*=======================*/
