@@ -3,10 +3,12 @@ package projet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Scanner;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+
 import javafx.scene.Scene;
 import javafx.scene.control.TitledPane;
 
@@ -27,6 +29,11 @@ public class Main extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
+		
+		
+	      
+	      
+	      
 		//FXMLLoader root = new FXMLLoader(getClass().getResource("clientftp (1).fxml"));
 		//root.load();
 /*

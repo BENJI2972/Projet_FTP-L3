@@ -7,7 +7,7 @@
 
 <TitledPane fx:id="fullfields" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1200.0" text="Projet Client FTP" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.FtpControleur">
   <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="720.0" prefWidth="1200.0">
          <children>
             <BorderPane minHeight="720.0" minWidth="1200.0" prefHeight="720.0" prefWidth="1200.0">
                <top>
@@ -137,7 +137,7 @@
                                                                         <Insets right="10.0" top="5.0" />
                                                                      </HBox.margin>
                                                                   </Label>
-                                                                  <TextField fx:id="localfield" prefHeight="25.0" prefWidth="506.0" />
+                                                                  <TextField fx:id="localfield" onAction="#action" prefHeight="25.0" prefWidth="506.0" />
                                                                </children>
                                                             </HBox>
                                                             <TreeView prefHeight="200.0" prefWidth="200.0" />
