@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TitledPane animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1200.0" text="Projet Client FTP" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane fx:id="fullfields" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1200.0" text="Projet Client FTP" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FtpCControleur">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
@@ -95,7 +95,7 @@
                                     <Insets right="10.0" top="10.0" />
                                  </HBox.margin>
                               </TextField>
-                              <Button fx:id="connectbutton" mnemonicParsing="false" onMouseClicked="#connect" prefHeight="20.0" text="Connexion">
+                              <Button fx:id="connectbutton" mnemonicParsing="false" onAction="#connect" prefHeight="20.0" text="Connexion">
                                  <padding>
                                     <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                  </padding>
@@ -111,7 +111,10 @@
                <center>
                   <SplitPane dividerPositions="0.2350230414746544" orientation="VERTICAL" prefHeight="595.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
                     <items>
-                      <AnchorPane minHeight="100.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                      <AnchorPane minHeight="100.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TextArea fx:id="cmdarea" layoutX="-1.0" layoutY="7.0" prefHeight="151.0" prefWidth="1200.0" />
+                           </children></AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
                               <SplitPane dividerPositions="0.503338898163606" layoutX="-2.0" layoutY="-4.0" prefHeight="479.0" prefWidth="1200.0">
@@ -134,7 +137,7 @@
                                                                         <Insets right="10.0" top="5.0" />
                                                                      </HBox.margin>
                                                                   </Label>
-                                                                  <TextField prefHeight="25.0" prefWidth="506.0" />
+                                                                  <TextField fx:id="localfield" prefHeight="25.0" prefWidth="506.0" />
                                                                </children>
                                                             </HBox>
                                                             <TreeView prefHeight="200.0" prefWidth="200.0" />
@@ -175,9 +178,10 @@
                                                                         <Insets right="10.0" top="5.0" />
                                                                      </HBox.margin>
                                                                   </Label>
-                                                                  <TextField prefHeight="25.0" prefWidth="496.0" />
+                                                                  <TextField fx:id="distantfield" prefHeight="25.0" prefWidth="496.0" />
                                                                </children>
                                                             </HBox>
+                                                            <TreeView prefHeight="200.0" prefWidth="200.0" />
                                                          </children>
                                                       </VBox>
                                                    </children>
