@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane fx:id="fullfields" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1200.0" text="Projet Client FTP" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.FtpControleur">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <BorderPane minHeight="720.0" minWidth="1200.0" prefHeight="720.0" prefWidth="1200.0">
+               <top>
+                  <VBox maxWidth="1200.0" minWidth="1200.0" prefHeight="67.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="25.0" minWidth="1200.0">
+                           <menus>
+                              <Menu mnemonicParsing="false" text="File">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="Close" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="Edit">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="Delete" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="Help">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="About" />
+                                 </items>
+                              </Menu>
+                           </menus>
+                        </MenuBar>
+                        <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="1200.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Hôte :">
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets left="30.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="hotefield" prefHeight="20.0" promptText="hote">
+                                 <padding>
+                                    <Insets left="5.0" right="10.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Identifiant :">
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="loginfield" prefHeight="20.0" promptText="login">
+                                 <padding>
+                                    <Insets left="5.0" right="10.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Mot de Passe :">
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <PasswordField fx:id="passfield" prefHeight="20.0" promptText="mot de passe">
+                                 <padding>
+                                    <Insets left="5.0" right="10.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </PasswordField>
+                              <Label text="Port : " textAlignment="CENTER">
+                                 <HBox.margin>
+                                    <Insets right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="portfield" prefHeight="20.0" promptText="port">
+                                 <padding>
+                                    <Insets left="5.0" right="10.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button fx:id="connectbutton" mnemonicParsing="false" onAction="#connection" prefHeight="20.0" text="Connexion">
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets left="30.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </top>
+               <center>
+                  <SplitPane dividerPositions="0.2350230414746544" orientation="VERTICAL" prefHeight="595.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+                    <items>
+                      <AnchorPane minHeight="100.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TextArea fx:id="cmdarea" layoutX="-1.0" layoutY="7.0" prefHeight="151.0" prefWidth="1200.0" />
+                           </children></AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <SplitPane dividerPositions="0.503338898163606" layoutX="-2.0" layoutY="-4.0" prefHeight="479.0" prefWidth="1200.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <SplitPane dividerPositions="0.5" layoutX="1.0" layoutY="3.0" orientation="VERTICAL" prefHeight="472.0">
+                                            <items>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                   <children>
+                                                      <VBox minHeight="50.0" prefHeight="234.0" prefWidth="596.0">
+                                                         <children>
+                                                            <HBox prefHeight="30.0" prefWidth="598.0">
+                                                               <children>
+                                                                  <Label alignment="CENTER" contentDisplay="CENTER" text="Site Local :" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="10.0" right="10.0" />
+                                                                     </padding>
+                                                                     <HBox.margin>
+                                                                        <Insets right="10.0" top="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <TextField fx:id="localfield" prefHeight="25.0" prefWidth="506.0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <TreeView prefHeight="200.0" prefWidth="200.0" />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="228.0" prefWidth="597.0">
+                                                   <children>
+                                                      <TreeTableView prefHeight="229.0" prefWidth="594.0">
+                                                         <columns>
+                                                            <TreeTableColumn prefWidth="190.0" text="Nom de Fichier" />
+                                                            <TreeTableColumn prefWidth="60.0" text="Taille" />
+                                                            <TreeTableColumn prefWidth="100.0" text="Type de fichier" />
+                                                            <TreeTableColumn prefWidth="140.0" text="Dernière Modification" />
+                                                            <TreeTableColumn prefWidth="90.0" text="Propriétaire" />
+                                                         </columns>
+                                                      </TreeTableView>
+                                                   </children></AnchorPane>
+                                            </items>
+                                          </SplitPane>
+                                       </children></AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="834.0">
+                                       <children>
+                                          <SplitPane dividerPositions="0.5" layoutY="3.0" orientation="VERTICAL" prefHeight="474.0" prefWidth="597.0">
+                                            <items>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                   <children>
+                                                      <VBox minHeight="50.0" prefHeight="234.0" prefWidth="596.0">
+                                                         <children>
+                                                            <HBox prefHeight="30.0" prefWidth="598.0">
+                                                               <children>
+                                                                  <Label alignment="CENTER" contentDisplay="CENTER" text="Site Distant :" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="10.0" right="10.0" />
+                                                                     </padding>
+                                                                     <HBox.margin>
+                                                                        <Insets right="10.0" top="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <TextField fx:id="distantfield" prefHeight="25.0" prefWidth="496.0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <TreeView prefHeight="200.0" prefWidth="200.0" />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                   <children>
+                                                      <TreeTableView layoutX="-1.0" layoutY="-2.0" prefHeight="229.0" prefWidth="594.0">
+                                                        <columns>
+                                                          <TreeTableColumn prefWidth="190.0" text="Nom de Fichier" />
+                                                          <TreeTableColumn prefWidth="60.0" text="Taille" />
+                                                            <TreeTableColumn prefWidth="100.0" text="Type de fichier" />
+                                                            <TreeTableColumn prefWidth="140.0" text="Dernière Modification" />
+                                                            <TreeTableColumn prefWidth="90.0" text="Propriétaire" />
+                                                        </columns>
+                                                      </TreeTableView>
+                                                   </children></AnchorPane>
+                                            </items>
+                                          </SplitPane>
+                                       </children></AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </center>
+            </BorderPane>
+         </children></AnchorPane>
+  </content>
+</TitledPane>
