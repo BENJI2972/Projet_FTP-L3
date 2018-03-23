@@ -39,8 +39,12 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-	}
+		
+	System.getProperties().put("http.proxySet","true");
+	System.getProperties().put("http.proxyPort","3128");
+	System.getProperties().put("http.proxyHost","proxyubo.univ-brest.fr");
 	
+	}
 }
 
 /*
